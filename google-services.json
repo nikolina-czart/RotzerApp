@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "420356316686",
+    "project_id": "rozterapp-2d500",
+    "storage_bucket": "rozterapp-2d500.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420356316686:android:ac2969dbb715a92220665f",
+        "android_client_info": {
+          "package_name": "pwr.edu.rotzerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "420356316686-fbjbei1heefl98fjtorrciukadd3i2js.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBZ3vMz4__L_NFb5-ZNJQ5lY9ShBT5WPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "420356316686-fbjbei1heefl98fjtorrciukadd3i2js.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
