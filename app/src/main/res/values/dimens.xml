@@ -1,0 +1,70 @@
+<resources>
+    <!--dimes for design 3-->
+    <dimen name="headerTextSize">30sp</dimen>
+    <dimen name="newsMoreTextSize">12sp</dimen>
+    <dimen name="loginCardRadius">20dp</dimen>
+    <dimen name="loginViewsMargin">20dp</dimen>
+
+    <dimen name="signup_text_margin_top">10dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="movie_title_padding">10dp</dimen>
+    <dimen name="movie_title">15dp</dimen>
+    <dimen name="movie_cover_height">160dp</dimen>
+    <dimen name="card_movie_radius">0dp</dimen>
+    <dimen name="card_margin">5dp</dimen>
+    <dimen name="user_rating_padding_bottom">5dp</dimen>
+    <dimen name="user_rating">12dp</dimen>
+    <dimen name="detail_backdrop_height">500dp</dimen>
+    <dimen name="layout_margin_left">10dp</dimen>
+    <dimen name="layout_margin_top">3dp</dimen>
+    <dimen name="layout_margin_top2">10dp</dimen>
+    <dimen name="padding_layout">16dp</dimen>
+    <item name="low_speed" type="dimen" format="float">120</item>
+    <item name="normal_speed" type="dimen" format="float">100</item>
+
+
+
+    <dimen name="title_text_size">30sp</dimen>
+    <dimen name="subtitle_text_size">24sp</dimen>
+    <dimen name="body_text_size">20sp</dimen>
+    <dimen name="horizontal_padding">16dp</dimen>
+    <dimen name="vertical_padding">16dp</dimen>
+    <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="vertical_margin">16dp</dimen>
+    <dimen name="tabs_height">48dp</dimen>
+
+
+
+    <dimen name="title_time_of_day">24dp</dimen>
+    <dimen name="drug_name">26dp</dimen>
+    <dimen name="basic_text">16dp</dimen>
+    <dimen name="information_text">20dp</dimen>
+
+
+    <dimen name="logo_dp">54dp</dimen>
+    <dimen name="two_dp">2dp</dimen>
+    <dimen name="four_dp">4dp</dimen>
+    <dimen name="eight_dp">8dp</dimen>
+    <dimen name="sixteen_dp">16dp</dimen>
+    <dimen name="text_medium">14sp</dimen>
+    <dimen name="text_large">17sp</dimen>
+    <dimen name="list_item_padding">8dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+
+    <dimen name="standard_12">12dp</dimen>
+    <dimen name="standard_23">23dp</dimen>
+    <dimen name="standard_55">55dp</dimen>
+    <dimen name="standard_100">100dp</dimen>
+    <dimen name="standard_145">145dp</dimen>
+    <dimen name="standard_190">190dp</dimen>
+
+    <dimen name="item_offset">3dp</dimen>
+    <integer name="span_count">3</integer>
+</resources>
