@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">RotzerApp</string>
+    <string name="register">REGISTER</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Hasło</string>
+    <string name="signup_login_hint">Już masz konto? Zaloguj się</string>
+    <string name="login_signup_hint">Nie masz jeszcz konta? Zarejestruj się</string>
+    <string name="login_name_hint">Imię</string>
+    <string name="login_age_hint">Wiek użytkownika</string>
 </resources>
