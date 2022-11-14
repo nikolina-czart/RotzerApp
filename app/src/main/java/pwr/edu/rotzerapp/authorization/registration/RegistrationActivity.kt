@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import pwr.edu.rotzerapp.MainActivity
 import pwr.edu.rotzerapp.R
+import pwr.edu.rotzerapp.authorization.login.LoginActivity
 import pwr.edu.rotzerapp.database.dto.MainUser
 
 class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
@@ -46,12 +47,11 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setupLoginInClick() {
-//        val intent = Intent(applicationContext, LoginActivity::class.java)
+        val intent = Intent(applicationContext, LoginActivity::class.java)
         startActivity(intent)
     }
 
     private fun setupSignUpClick() {
-        // elvis operator
         val email: String = emailEditText!!.text?.trim().toString()
         val name: String = usernameEditText!!.text?.trim().toString()
         val password: String = passwordEditText!!.text?.trim().toString()

@@ -5,18 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authorization.registration.RegistrationActivity"
+    tools:context=".authorization.login.LoginActivity"
     android:background="@drawable/login_bk"
     android:focusableInTouchMode="true">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+    <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,31 +22,18 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/logo" />
 
         <TextView
-            style="@style/loginHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/loginViewsMargin"
-            android:text="Rejestracja"
-            android:textSize="20dp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputName"
-            style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
-
-            <EditText
-                android:id="@+id/editTextName"
-                style="@style/modifiedEditText"
-                android:hint="@string/login_name_hint"
-                android:inputType="textPersonName"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+            style="@style/loginHeader"
+            android:text="Logowanie"
+            android:textSize="20dp"
+            android:layout_marginTop="@dimen/loginViewsMargin"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputEmail"
@@ -62,20 +47,6 @@
                 android:inputType="textEmailAddress"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputAge"
-            style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
-
-            <EditText
-                android:id="@+id/editTextAge"
-                style="@style/modifiedEditText"
-                android:hint="@string/login_age_hint"
-                android:inputType="numberSigned"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputPassword"
@@ -95,16 +66,17 @@
             style="@style/loginButton"
             android:layout_gravity="right"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:text="Zarejestruj się" />
+            android:text="Zaloguj się" />
 
         <TextView
-            android:id="@+id/textGoToLogin"
+            android:id="@+id/textSingUp"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:text="@string/signup_login_hint"
+            android:text="@string/login_signup_hint"
             android:textAlignment="textEnd"
             android:textColor="@color/primaryTextColor"
             android:textStyle="bold" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
