@@ -1,7 +1,20 @@
 <resources>
+    <dimen name="margin_main">10dp</dimen>
+    <dimen name="margin_card">20dp</dimen>
+    <dimen name="margin_bottom_logo">20dp</dimen>
+    <dimen name="title_text_size">20sp</dimen>
+    <dimen name="text_size">12sp</dimen>
+    <dimen name="margin_title_top">10dp</dimen>
+    <dimen name="margin_title_bottom">5dp</dimen>
+    <dimen name="margin_between">10dp</dimen>
+    <dimen name="margin_bottom_end">10dp</dimen>
+    <dimen name="edit_text_modified">16sp</dimen>
+    <dimen name="radius_edit_text">10dp</dimen>
+
+
     <!--dimes for design 3-->
     <dimen name="headerTextSize">30sp</dimen>
-    <dimen name="newsMoreTextSize">12sp</dimen>
+
     <dimen name="loginCardRadius">20dp</dimen>
     <dimen name="loginViewsMargin">20dp</dimen>
 
@@ -28,7 +41,7 @@
 
 
 
-    <dimen name="title_text_size">30sp</dimen>
+<!--    <dimen name="title_text_size">30sp</dimen>-->
     <dimen name="subtitle_text_size">24sp</dimen>
     <dimen name="body_text_size">20sp</dimen>
     <dimen name="horizontal_padding">16dp</dimen>
