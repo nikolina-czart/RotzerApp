@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name="pwr.edu.rotzerapp.MainActivity" />
-        <activity android:name=".authorization.registration.RegistrationActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".authorization.registration.RegistrationActivity" />
     </application>
 
 </manifest>
