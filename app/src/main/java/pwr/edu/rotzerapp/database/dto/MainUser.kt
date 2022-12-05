@@ -1,13 +1,13 @@
 package pwr.edu.rotzerapp.database.dto
 
 data class MainUser(
-    val uid: String? = null,
-    val name: String? = null,
-    val surname: String? = null,
-    val email: String? = null,
-    val partnerID: String? = null,
-    val birthDate: String? = null,
-    val age: Int? = null,
-    val pregnant: Boolean? = null,
-    val contraception: Boolean? = null,
+    val uid: String? = "",
+    val name: String? = "",
+    val surname: String? = "",
+    val email: String? = "",
+    val partnerID: String? = "",
+    val birthDate: String? = "",
+    val age: String = "",
+    val pregnant: Boolean? = false,
+    val contraception: Boolean? = false,
 )

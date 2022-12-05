@@ -1,12 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
-        <!-- Status bar color. -->
-<!--        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents">
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -14,16 +8,43 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="login_header_text_style">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/margin_title_top</item>
+        <item name="android:layout_marginBottom">@dimen/margin_title_bottom</item>
+    </style>
 
-    <!--designs login_bkogin and register-->
+    <style name="login_text_style">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginBottom">@dimen/margin_bottom_end</item>
+    </style>
+
     <style name="parent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+
+    <style name="modified_edit_text" parent="parent">
+        <item name="android:textSize">@dimen/edit_text_modified</item>
+        <item name="android:backgroundTint">@color/login_background_color</item>
+    </style>
+
+    <style name="login_button" parent="viewParent">
+        <item name="android:background">@drawable/login_button_bk</item>
+        <item name="android:textColor">@color/whiteTextColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!--designs login_bkogin and register-->
+
     <style name="loginParent" parent="parent">
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/loginBkColor</item>
+<!--        <item name="android:background">@color/loginBkColor</item>-->
         <item name="android:focusableInTouchMode">true</item>
     </style>
 
@@ -46,10 +67,7 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="modifiedEditText" parent="parent">
-        <item name="android:textSize">@dimen/newsMoreTextSize</item>
-        <item name="android:backgroundTint">@color/loginBkColor</item>
-    </style>
+
 
     <style name="viewParent">
         <item name="android:layout_width">wrap_content</item>
@@ -63,7 +81,7 @@
     </style>
 
     <style name="saveButton" parent="viewParent">
-        <item name="android:background">@drawable/save_button_bk</item>
+<!--        <item name="android:background">@drawable/save_button_bk</item>-->
         <item name="android:textColor">@color/whiteTextColor</item>
         <item name="android:textStyle">bold</item>
     </style>

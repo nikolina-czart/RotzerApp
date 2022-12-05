@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="background_main_color">#BEF2E7F6</color>
+    <color name="background_card_color">#B7FFFFFF</color>
+    <color name="colorAccent">#310A4A</color>
+    <color name="colorPrimary">#95000000</color>
+    <color name="login_background_color">#f0f0f0</color>
+    <color name="hint_color">#68050505</color>
+    <color name="text_color">#A4050505</color>
+    <color name="error_color">#B71C1C</color>
+
     <!--colors for modern ui-->
     <color name="whiteTextColor">#fff</color>
     <color name="primaryTextColor">#2661FA</color>
-    <color name="loginBkColor">#f0f0f0</color>
+
 
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>
 
     <color name="viewBg">#f1f5f8</color>
     <color name="movie_title">#4c4c4c</color>
-    <color name="colorPrimary">#212121</color>
+
     <color name="colorPrimaryDark">#06161d</color>
-    <color name="colorAccent">#9C27B0</color>
+<!--    <color name="colorAccent">#9C27B0</color>-->
 
     <!--text colors-->
     <color name="text_black_87">#DE000000</color>
@@ -23,7 +32,7 @@
     <color name="primaryText">@color/text_black_87</color>
     <color name="secondaryText">@color/text_black_60</color>
 
-    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_200">#7654A0</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
