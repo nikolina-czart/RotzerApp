@@ -12,9 +12,9 @@ class FirebaseRepository {
     private val db = Firebase.firestore
     private val cloud = FirebaseFirestore.getInstance()
 
-    companion object FirebaseManagerAuth{
-        val auth = FirebaseAuth.getInstance()
-        fun getCurrentUserID(): String? = FirebaseAuth.getInstance().currentUser?.uid
+   companion object FirebaseManagerAuth{
+       val auth = FirebaseAuth.getInstance()
+       fun getCurrentUserID(): String? = FirebaseAuth.getInstance().currentUser?.uid
     }
 
     fun createNewUser(user: MainUser) {

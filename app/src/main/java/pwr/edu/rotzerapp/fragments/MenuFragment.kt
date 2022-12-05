@@ -1,5 +1,6 @@
 package pwr.edu.rotzerapp.fragments
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,65 +16,65 @@ import pwr.edu.rotzerapp.enums.CervixHardnessType
 import pwr.edu.rotzerapp.enums.CervixHeightType
 import pwr.edu.rotzerapp.enums.CervixOpenType
 import pwr.edu.rotzerapp.enums.MucusType
-
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MenuFragment : Fragment() {
     private lateinit var binding: FragmentMenuBinding
-
-    private lateinit var mucusSpinner: Spinner
-    private lateinit var cervixHardness : Spinner
-    private lateinit var cervixHeight : Spinner
-    private lateinit var cervixOpen : Spinner
-
-    private lateinit var mucusType: MucusType
-    private lateinit var cervixHardnessType: CervixHardnessType
-    private lateinit var cervixHeightType: CervixHeightType
-    private lateinit var cervixOpenType: CervixOpenType
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         return inflater.inflate(R.layout.fragment_menu, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        view.findViewById<Spinner>(R.id.typeMucus).adapter = ArrayAdapter(requireContext(),
+                android.R.layout.simple_spinner_item,MucusType.values().map { i -> i.describe})
+
+        view.findViewById<Spinner>(R.id.heightCervix).adapter = ArrayAdapter(requireContext(),
+            android.R.layout.simple_spinner_item,CervixHeightType.values().map { i -> i.describe})
+
+        view.findViewById<Spinner>(R.id.openCervix).adapter = ArrayAdapter(requireContext(),
+            android.R.layout.simple_spinner_item,CervixOpenType.values().map { i -> i.describe})
+
+        view.findViewById<Spinner>(R.id.hardnessCervix).adapter = ArrayAdapter(requireContext(),
+            android.R.layout.simple_spinner_item,CervixHardnessType.values().map { i -> i.describe})
+
+
+
+        val sdfTmp = SimpleDateFormat("dd.MM.yyyy", Locale.GERMANY)
+        showDate.text = sdfTmp.format(Date())
+
+        showDialog.setOnClickListener {
+            viewDatePicker()
+        }
+
         saveData.setOnClickListener {
             findNavController().navigate(R.id.action_menuFragment_to_chartFragment)
         }
 
-        mucusDateToList()
-        cervixHardnessDateToList()
-        cervixHeightDateToList()
-        cervixOpenDateToList()
-
     }
 
-    private fun mucusDateToList() {
 
-        val mucusT =MucusType.values().toString()
+    private fun viewDatePicker() {
+        val cal = Calendar.getInstance()
+        val year = cal.get(Calendar.YEAR)
+        val month = cal.get(Calendar.MONTH)
+        val day = cal.get(Calendar.DAY_OF_MONTH)
 
-
-        //typeMucus = mucusT
+        val datePicker = DatePickerDialog(requireActivity(),{ _, year, month, dayOfMonth ->
+            val sdfChange = SimpleDateFormat("dd.MM.yyyy", Locale.GERMANY)
+            cal.set(year, month, dayOfMonth)
+            showDate.text = sdfChange.format(cal.time)
+        }, year, month, day)
+        datePicker.show()
     }
 
-    private fun cervixHardnessDateToList() {
-
-        val hardnessT = CervixHardnessType.values().toString()
-    }
-
-    private fun cervixHeightDateToList() {
-
-        val heightT = CervixHeightType.values().toString()
-    }
-
-    private fun cervixOpenDateToList() {
-
-        val openT = CervixOpenType.values().toString()
-    }
 }

@@ -1,6 +1,6 @@
 package pwr.edu.rotzerapp.enums
 
-enum class MucusType(describe: String, short:String, type:Int) {
+enum class MucusType(val describe: String, val short:String, val type:Int) {
 
     NOTHING("nic", "∅",0),
     DRY("suchość","su",0),
@@ -21,13 +21,5 @@ enum class MucusType(describe: String, short:String, type:Int) {
     LIQUID ("płynny", "pł",2),
     WET ("mokro-ślisko", "mś",2);
 
-    private val describe: String
-        get() {
-            TODO()
-        }
-
-    override fun toString(): String {
-        return describe
-    }
 
 }
