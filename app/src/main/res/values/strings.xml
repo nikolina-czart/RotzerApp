@@ -7,4 +7,12 @@
     <string name="login_signup_hint">Nie masz jeszcz konta? Zarejestruj się</string>
     <string name="login_name_hint">Imię</string>
     <string name="login_age_hint">Wiek użytkownika</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="data">Data</string>
+    <string name="krwawienie">Krwawienie</string>
+    <string name="temperatura">Temperatura</string>
+    <string name="opis_luzu">Opis śluzu</string>
+    <string name="opis_szyjki_macicy">Opis szyjki macicy</string>
+    <string name="zapisz_dane">Zapisz dane</string>
 </resources>
