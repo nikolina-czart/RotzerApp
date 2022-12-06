@@ -13,5 +13,6 @@
     <string name="login_signup_hint">Nie masz jeszcz konta? Zarejestruj się</string>
     <string name="login_name_hint">Imię</string>
     <string name="login_age_hint">Wiek użytkownika</string>
+    <string name="title_activity_settings">Ustawienia</string>
 
 </resources>
