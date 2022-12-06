@@ -24,6 +24,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:background="@color/white"
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,10 +46,11 @@
                 tools:ignore="UseCompoundDrawables">
 
                 <TextView
+                    android:background="@color/white"
                     android:layout_width="408dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/data"
+                    android:text="Data"
                     android:textColor="@color/md_deep_purple_300"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -57,11 +59,13 @@
                     android:id="@+id/showDate"
                     android:layout_width="408dp"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
                     android:text="Wybierz datę"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="16sp"
                     android:textStyle="italic"
-                    android:gravity="center"/>
+                    tools:ignore="TextContrastCheck" />
 
                 <Button
                     android:id="@+id/showDialog"
@@ -78,6 +82,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:background="@color/white"
             android:id="@+id/bloodPeriod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,6 +95,7 @@
             android:layout_columnWeight="0">
 
             <LinearLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
@@ -97,6 +103,7 @@
                 tools:ignore="UseCompoundDrawables">
 
                 <TextView
+                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -175,6 +182,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:background="@color/white"
             android:id="@+id/temperature"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -188,6 +196,7 @@
             app:cardUseCompatPadding="true">
 
             <GridLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="0dp"
@@ -197,6 +206,7 @@
                 tools:ignore="UselessParent">
 
                 <TextView
+                    android:background="@color/white"
                     android:layout_row="0"
                     android:layout_rowWeight="1"
                     android:layout_column="0"
@@ -204,12 +214,13 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temperatura"
+                    android:text="Temperatura"
                     android:textColor="@color/md_deep_purple_300"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
+                    android:background="@color/white"
                     android:id="@+id/editTemperatureNumberDecimal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -240,6 +251,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:background="@color/white"
             android:id="@+id/mucus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -253,6 +265,7 @@
             app:cardUseCompatPadding="true">
 
             <LinearLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
@@ -261,9 +274,10 @@
                 tools:ignore="UseCompoundDrawables">
 
                 <TextView
+                    android:background="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/opis_luzu"
+                    android:text="Opis śluzu"
                     android:textColor="@color/md_deep_purple_300"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -278,6 +292,7 @@
                     tools:ignore="UselessParent">
 
                     <TextView
+                        android:background="@color/white"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_row="0"
@@ -290,6 +305,7 @@
                         android:textSize="16sp" />
 
                     <Spinner
+                        android:background="@color/white"
                         android:id="@+id/typeMucus"
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
@@ -319,6 +335,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:background="@color/white"
             android:id="@+id/cervix"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -332,6 +349,7 @@
             app:cardUseCompatPadding="true">
 
             <LinearLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
@@ -340,15 +358,17 @@
                 tools:ignore="UseCompoundDrawables">
 
                 <TextView
+                    android:background="@color/white"
                     android:layout_width= "match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/opis_szyjki_macicy"
+                    android:text="Opis szyjki macicy"
                     android:textAlignment="center"
                     android:textColor="@color/md_deep_purple_300"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <GridLayout
+                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"
@@ -358,6 +378,7 @@
                     tools:ignore="UselessParent">
 
                     <TextView
+                        android:background="@color/white"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_row="0"
@@ -370,6 +391,7 @@
                         android:textSize="16sp" />
 
                     <Spinner
+                        android:background="@color/white"
                         android:id="@+id/heightCervix"
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
@@ -383,6 +405,7 @@
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
+                        android:background="@color/white"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_row="1"
@@ -395,6 +418,7 @@
                         android:textSize="16sp" />
 
                     <Spinner
+                        android:background="@color/white"
                         android:id="@+id/openCervix"
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
@@ -408,6 +432,7 @@
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
+                        android:background="@color/white"
                         android:layout_row="2"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="0"
@@ -420,6 +445,7 @@
                         android:textSize="16sp" />
 
                     <Spinner
+                        android:background="@color/white"
                         android:id="@+id/hardnessCervix"
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
@@ -447,6 +473,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:background="@color/white"
             android:id="@+id/historyCycle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -460,6 +487,7 @@
             app:cardUseCompatPadding="true">
 
             <LinearLayout
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
@@ -468,6 +496,7 @@
                 tools:ignore="UseCompoundDrawables">
 
                 <TextView
+                    android:background="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Moje cykle"
@@ -476,6 +505,7 @@
                     android:textStyle="bold" />
 
                 <GridLayout
+                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"
@@ -485,6 +515,7 @@
                     tools:ignore="UselessParent">
 
                     <TextView
+                        android:background="@color/white"
                         android:layout_row="0"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="0"
@@ -497,6 +528,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:background="@color/white"
                         android:layout_width="197dp"
                         android:layout_height="wrap_content"
                         android:layout_row="0"
@@ -509,6 +541,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:background="@color/white"
                         android:layout_row="1"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="0"
@@ -521,6 +554,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:background="@color/white"
                         android:layout_width="193dp"
                         android:layout_height="wrap_content"
                         android:layout_row="1"
