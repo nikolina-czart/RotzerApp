@@ -6,67 +6,108 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".authorization.login.LoginActivity"
-    android:background="@drawable/login_bk"
+    android:background="@color/background_main_color"
     android:focusableInTouchMode="true">
 
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_main"
         android:orientation="vertical"
+        android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/logo"
+            android:layout_marginBottom="@dimen/margin_bottom_logo"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/loginHeader"
-            android:text="Logowanie"
-            android:textSize="20dp"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:orientation="vertical"
+            android:background="@drawable/card"
+            android:layout_margin="@dimen/margin_card">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputEmail"
-            style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
 
-            <EditText
-                android:id="@+id/editTextEmail"
-                style="@style/modifiedEditText"
-                android:hint="@string/login_email_hint"
-                android:inputType="textEmailAddress"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/margin_card">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputPassword"
-            style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_text_title"
+                    style="@style/login_header_text_style"/>
 
-            <EditText
-                android:id="@+id/editTextPassword"
-                style="@style/modifiedEditText"
-                android:hint="@string/login_password_hint"
-                android:inputType="textPassword"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_text_welcome"
+                    android:layout_marginBottom="@dimen/margin_bottom_end"
+                    style="@style/login_text_style"/>
 
-        <Button
-            android:id="@+id/cirLoginButton"
-            style="@style/loginButton"
-            android:layout_gravity="right"
-            android:layout_marginTop="@dimen/loginViewsMargin"
-            android:text="Zaloguj się" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tl_login_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/hint_color"
+                    android:layout_marginBottom="@dimen/margin_between"
+                    android:hint="@string/login_email_hint"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:boxStrokeColor="@color/purple_200"
+                    app:boxStrokeErrorColor="@color/error_color"
+                    app:errorTextColor="@color/error_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_login_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_color" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tl_login_password"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_between"
+                    android:hint="@string/login_password_hint"
+                    android:textColorHint="@color/hint_color"
+                    app:endIconMode="password_toggle"
+                    app:endIconCheckable="true"
+                    app:endIconTint="@color/colorAccent"
+                    app:boxStrokeColor="@color/purple_200"
+                    app:boxStrokeErrorColor="@color/error_color"
+                    app:errorTextColor="@color/error_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_login_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_color"
+                        android:inputType="textPassword"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_login"
+                    style="@style/login_button"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="@dimen/margin_between"
+                    android:text="@string/log_in" />
+
+            </LinearLayout>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textSingUp"
@@ -74,9 +115,8 @@
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="@string/login_signup_hint"
             android:textAlignment="textEnd"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/colorAccent"
+            android:layout_marginHorizontal="20dp"
             android:textStyle="bold" />
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

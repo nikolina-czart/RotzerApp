@@ -18,10 +18,11 @@ class FirebaseRepository {
     }
 
     fun createNewUser(user: MainUser) {
-        cloud.collection("users")
-            .document(user.uid!!)
-            .set(user)
-
-        Log.d(FIREBASE_DEBUG, user.uid)
+        user.uid?.let {
+            db.collection("users").document(it)
+                .set(user)
+                .addOnSuccessListener { Log.d(FIREBASE_DEBUG, "DocumentSnapshot successfully written!") }
+                .addOnFailureListener { e -> Log.w(FIREBASE_DEBUG, "Error writing document", e) }
+        }
     }
 }
