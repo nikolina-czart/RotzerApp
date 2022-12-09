@@ -40,10 +40,10 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener, Parcelable {
         setContentView(R.layout.activity_login)
 
         if (fbAuth.currentUser != null) {
-//            val intent: Intent = Intent(applicationContext, MainActivity::class.java).apply {
-//                flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//            }
-//            startActivity(intent)
+            val intent: Intent = Intent(applicationContext, MainActivity::class.java).apply {
+                flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            }
+            startActivity(intent)
         }
 
         init()
