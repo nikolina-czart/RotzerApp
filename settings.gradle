@@ -13,6 +13,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+
+        // e.g this is how you would add jitpack
+        maven { url "https://jitpack.io" }
 
     }
 }

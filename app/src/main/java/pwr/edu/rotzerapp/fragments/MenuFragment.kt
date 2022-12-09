@@ -53,16 +53,6 @@ class MenuFragment : Fragment(), YearRangeListener {
         yearRangeCalendarView.setYearRangeListener(this)
 
 
-        /*val sdfTmp = SimpleDateFormat("dd.MM.yyyy", Locale.GERMANY)
-        //showDate.text = sdfTmp.format(Date())
-
-        //showDialog.setOnClickListener { viewDatePicker() }
-         */
-//        editHour.addTextChangedListener(Patterned+TextWatcher(""))
-
-        saveData.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_chartFragment)
-        }
     }
 
     override fun OnDateClicked(rCalendar: RCalendar, position: Int) {
@@ -78,22 +68,6 @@ class MenuFragment : Fragment(), YearRangeListener {
 
     }
 
-/*
-    private fun viewDatePicker() {
-        val cal = Calendar.getInstance()
-        val year = cal.get(Calendar.YEAR)
-        val month = cal.get(Calendar.MONTH)
-        val day = cal.get(Calendar.DAY_OF_MONTH)
-
-        val datePicker = DatePickerDialog(requireActivity(),{ _, year, month, dayOfMonth ->
-            val sdfChange = SimpleDateFormat("dd.MM.yyyy", Locale.GERMANY)
-            cal.set(year, month, dayOfMonth)
-            showDate.text = sdfChange.format(cal.time)
-        }, year, month, day)
-        datePicker.show()
-    }
-
- */
 
 
 

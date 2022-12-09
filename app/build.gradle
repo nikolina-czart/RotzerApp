@@ -86,4 +86,8 @@ dependencies {
     //calendar weekly
     implementation 'joda-time:joda-time:2.10.1'
     implementation files('libs/rcalenderlib_v2.6.0.aar')
+
+
+    //navigation bar
+    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
 }

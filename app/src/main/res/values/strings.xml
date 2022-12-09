@@ -15,5 +15,11 @@
     <string name="login_age_hint">Wiek użytkownika</string>
     <string name="title_activity_settings">Ustawienia</string>
     <string name="prompt">Wybierz</string>
+    <string name="home">Dzisiaj</string>
+    <string name="like">Raporty</string>
+    <string name="wykres">Wykres</string>
+    <string name="settings">Ustawienia</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
