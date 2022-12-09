@@ -1,6 +1,7 @@
 package pwr.edu.rotzerapp
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
@@ -19,22 +20,29 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val bottomNavigation = findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
-        bottomNavigation.add(MeowBottomNavigation.Model(1, R.drawable.ic_heart))
+        bottomNavigation.add(MeowBottomNavigation.Model(1, R.drawable.ic_report))
         bottomNavigation.add(MeowBottomNavigation.Model(2, R.drawable.ic_today))
         bottomNavigation.add(MeowBottomNavigation.Model(3, R.drawable.ic_chart))
-        bottomNavigation.show(1, true)
+        bottomNavigation.show(2, true)
 
         var fragment: Fragment = TodayFragment()
         bottomNavigation.setOnClickMenuListener {
             when(it.id){
-                1 -> fragment = ReportFragment();
-                2 -> fragment = TodayFragment();
-                3 -> fragment = ChartFragment();
+                1 -> makeCurrentFragment(ReportFragment())
+                2 -> makeCurrentFragment(TodayFragment())
+                3 -> makeCurrentFragment(ChartFragment())
             }
         }
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.nav_host_fragment_activity_main, fragment)
             .commit()
+    }
+
+    private fun makeCurrentFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.nav_host_fragment_activity_main, fragment)
+            commit()
+        }
     }
 }

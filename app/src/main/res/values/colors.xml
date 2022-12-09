@@ -2,6 +2,8 @@
 <resources>
     <color name="background_main_color">#BEF2E7F6</color>
     <color name="background_card_color">#B7FFFFFF</color>
+    <color name="colorBottomNavigationSelector">#310A4A</color>
+    <color name="colorBottomNavigationUnSelector">#3B310A4A</color>
     <color name="colorAccent">#310A4A</color>
     <color name="colorPrimary">#95000000</color>
     <color name="login_background_color">#f0f0f0</color>

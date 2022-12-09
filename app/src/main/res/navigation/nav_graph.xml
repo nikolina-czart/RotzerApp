@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/menuFragment">
+    app:startDestination="@id/todayFragment">
     <fragment
-        android:id="@+id/menuFragment"
-        android:name="pwr.edu.rotzerapp.fragments.MenuFragment"
+        android:id="@+id/todayFragment"
+        android:name="pwr.edu.rotzerapp.fragment.today.TodayFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
+        tools:layout="@layout/fragment_today" >
         <action
             android:id="@+id/action_menuFragment_to_chartFragment"
             app:destination="@id/chartFragment" />
@@ -18,17 +18,26 @@
     </fragment>
     <fragment
         android:id="@+id/chartFragment"
-        android:name="pwr.edu.rotzerapp.fragments.ChartFragment"
+        android:name="pwr.edu.rotzerapp.fragment.chart.ChartFragment"
         android:label="fragment_chart"
-        tools:layout="@layout/fragment_chart" />
-    <fragment android:id="@+id/placeholder" >
+        tools:layout="@layout/fragment_chart" >
         <action
-            android:id="@+id/action_placeholder_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            android:id="@+id/action_chartFragment_to_reportsFragment"
+            app:destination="@id/reportsFragment" />
+        <action
+            android:id="@+id/action_chartFragment_to_menuFragment"
+            app:destination="@id/todayFragment" />
     </fragment>
     <fragment
         android:id="@+id/reportsFragment"
-        android:name="pwr.edu.rotzerapp.fragments.ReportsFragment"
-        android:label="fragment_reports"
-        tools:layout="@layout/fragment_reports" />
+        android:name="pwr.edu.rotzerapp.fragment.report.ReportFragment"
+        android:label="fragment_report"
+        tools:layout="@layout/fragment_report" >
+        <action
+            android:id="@+id/action_reportsFragment_to_chartFragment"
+            app:destination="@id/chartFragment" />
+        <action
+            android:id="@+id/action_reportsFragment_to_menuFragment"
+            app:destination="@id/todayFragment" />
+    </fragment>
 </navigation>
