@@ -17,8 +17,6 @@ import pwr.edu.rotzerapp.authorization.login.LoginActivity
 import pwr.edu.rotzerapp.database.dto.MainUser
 
 class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
-    private val REGISTRATION_DEBUG = "REGISTRATION_ACTIVITY_DEBUG"
-
     private val registrationVm: RegistrationViewModel by viewModels<RegistrationViewModel>()
     private val fbAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
@@ -76,19 +74,16 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
                             email,
                         )
                         registrationVm.createNewMainUser(user)
-                    Toast.makeText(applicationContext, "AAAA", Toast.LENGTH_SHORT).show()
-//                        val intent: Intent =
-//                            Intent(applicationContext, MainActivity::class.java).apply {
-//                                flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//                            }
-//                        startActivity(intent)
+                        val intent: Intent =
+                            Intent(applicationContext, MainActivity::class.java).apply {
+                                flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            }
+                        startActivity(intent)
                     }
                 }
                 .addOnFailureListener { exception ->
                     Toast.makeText(applicationContext, exception.message, Toast.LENGTH_SHORT).show()
                 }
-        } else {
-            Toast.makeText(applicationContext, "Something went wrong", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -97,7 +92,7 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
             changeErrorTextAttributes(textInputLayout, "Imię nie może być puste.", true)
             return false
         }
-        textInputLayout?.isErrorEnabled = false;
+        textInputLayout?.isErrorEnabled = false
         return true
     }
 
@@ -109,7 +104,7 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
             changeErrorTextAttributes(textInputLayout, "Zły format e-mailu.", true)
             return false
         }
-        textInputLayout?.isErrorEnabled = false;
+        textInputLayout?.isErrorEnabled = false
         return true
     }
 
@@ -121,7 +116,7 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
             changeErrorTextAttributes(textInputLayout, "Hasło musi składać się z minimum 6 znaków.", true)
             return false
         }
-        textInputLayout?.isErrorEnabled = false;
+        textInputLayout?.isErrorEnabled = false
         return true
     }
 
@@ -133,7 +128,7 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
             changeErrorTextAttributes(textInputLayout, "Hasła się różnią między sobą", true)
             return false
         }
-        textInputLayout?.isErrorEnabled = false;
+        textInputLayout?.isErrorEnabled = false
         return true
     }
 
@@ -155,11 +150,11 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
         emailEditText = findViewById(R.id.et_register_email)
         passwordEditText = findViewById(R.id.et_register_password)
         usernameEditText = findViewById(R.id.et_register_name)
-        passwordRepeatEditText = findViewById(R.id.et_register_password_repeat);
-        textInputLayoutName = findViewById(R.id.tl_register_name);
-        textInputLayoutEmail = findViewById(R.id.tl_register_email);
-        textInputLayoutPassword = findViewById(R.id.tl_register_password);
-        textInputLayoutPasswordRepeat = findViewById(R.id.tl_register_password_repeat);
+        passwordRepeatEditText = findViewById(R.id.et_register_password_repeat)
+        textInputLayoutName = findViewById(R.id.tl_register_name)
+        textInputLayoutEmail = findViewById(R.id.tl_register_email)
+        textInputLayoutPassword = findViewById(R.id.tl_register_password)
+        textInputLayoutPasswordRepeat = findViewById(R.id.tl_register_password_repeat)
     }
 
 }

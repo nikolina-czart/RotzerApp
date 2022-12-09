@@ -12,16 +12,21 @@ class FirebaseRepository {
     private val db = Firebase.firestore
     private val cloud = FirebaseFirestore.getInstance()
 
-   companion object FirebaseManagerAuth{
-       val auth = FirebaseAuth.getInstance()
-       fun getCurrentUserID(): String? = FirebaseAuth.getInstance().currentUser?.uid
+    companion object FirebaseManagerAuth {
+        val auth = FirebaseAuth.getInstance()
+        fun getCurrentUserID(): String? = FirebaseAuth.getInstance().currentUser?.uid
     }
 
     fun createNewUser(user: MainUser) {
         user.uid?.let {
             db.collection("users").document(it)
                 .set(user)
-                .addOnSuccessListener { Log.d(FIREBASE_DEBUG, "DocumentSnapshot successfully written!") }
+                .addOnSuccessListener {
+                    Log.d(
+                        FIREBASE_DEBUG,
+                        "DocumentSnapshot successfully written!"
+                    )
+                }
                 .addOnFailureListener { e -> Log.w(FIREBASE_DEBUG, "Error writing document", e) }
         }
     }
