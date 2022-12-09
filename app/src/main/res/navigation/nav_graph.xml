@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="pwr.edu.rotzerapp.fragments.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_chartFragment"
+            app:destination="@id/chartFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_reportsFragment"
+            app:destination="@id/reportsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chartFragment"
+        android:name="pwr.edu.rotzerapp.fragments.ChartFragment"
+        android:label="fragment_chart"
+        tools:layout="@layout/fragment_chart" />
+    <fragment android:id="@+id/placeholder" >
+        <action
+            android:id="@+id/action_placeholder_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportsFragment"
+        android:name="pwr.edu.rotzerapp.fragments.ReportsFragment"
+        android:label="fragment_reports"
+        tools:layout="@layout/fragment_reports" />
+</navigation>
