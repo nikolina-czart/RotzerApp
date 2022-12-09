@@ -14,5 +14,6 @@
     <string name="login_name_hint">Imię</string>
     <string name="login_age_hint">Wiek użytkownika</string>
     <string name="title_activity_settings">Ustawienia</string>
+    <string name="prompt">Wybierz</string>
 
 </resources>

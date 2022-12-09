@@ -58,7 +58,7 @@ class MenuFragment : Fragment(), YearRangeListener {
 
         //showDialog.setOnClickListener { viewDatePicker() }
          */
-
+//        editHour.addTextChangedListener(Patterned+TextWatcher(""))
 
         saveData.setOnClickListener {
             findNavController().navigate(R.id.action_menuFragment_to_chartFragment)
