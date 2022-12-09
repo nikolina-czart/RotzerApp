@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val bottomNavigation = findViewById<MeowBottomNavigation>(R.id.bottomNavigation)
-        bottomNavigation.add(MeowBottomNavigation.Model(1, R.drawable.ic_home))
-        bottomNavigation.add(MeowBottomNavigation.Model(2, R.drawable.ic_notification))
-        bottomNavigation.add(MeowBottomNavigation.Model(3, R.drawable.ic_dashboard))
+        bottomNavigation.add(MeowBottomNavigation.Model(1, R.drawable.ic_heart))
+        bottomNavigation.add(MeowBottomNavigation.Model(2, R.drawable.ic_today))
+        bottomNavigation.add(MeowBottomNavigation.Model(3, R.drawable.ic_chart))
         bottomNavigation.show(1, true)
 
         var fragment: Fragment = TodayFragment()
