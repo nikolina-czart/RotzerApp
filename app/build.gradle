@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -80,4 +81,13 @@ dependencies {
     //Drawerlayout
     implementation "androidx.drawerlayout:drawerlayout:1.1.1"
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.5.20"
+
+
+    //calendar weekly
+    implementation 'joda-time:joda-time:2.10.1'
+    implementation files('libs/rcalenderlib_v2.6.0.aar')
+
+
+    //navigation bar
+    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
 }

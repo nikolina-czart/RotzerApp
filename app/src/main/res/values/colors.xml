@@ -9,6 +9,7 @@
     <color name="text_color">#A4050505</color>
     <color name="error_color">#B71C1C</color>
 
+
     <!--colors for modern ui-->
     <color name="whiteTextColor">#fff</color>
     <color name="primaryTextColor">#2661FA</color>
