@@ -39,14 +39,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingBottom="10dp">
+                    android:layout_height="match_parent">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <ImageButton
                             android:id="@+id/btnPrev"
@@ -66,10 +68,14 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/linearLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="right"
-                        android:gravity="right">
+                        android:gravity="right"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
                             android:id="@+id/tvChooseDayCalendar"
@@ -90,14 +96,14 @@
 
                         <ImageButton
                             android:id="@+id/btnToday"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:background="@drawable/small_button"
                             android:padding="5dp"
                             android:src="@drawable/ic_today" />
                     </LinearLayout>
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                 <com.rezwan.rcalenderlib.views.YearRangeCalendarView
@@ -105,6 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="2dp"
+                    android:layout_marginTop="10dp"
                     app:active_date_background="@drawable/calendar_selector"
                     app:calendar_mode="week"
                     app:calendar_style="light"
@@ -321,7 +328,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/btn_save_color"
+                    android:background="@drawable/button_selector_bleeding"
                     android:textSize="12sp"
                     android:text="@string/save"/>
 
@@ -392,7 +399,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/btn_save_color"
+                    android:background="@drawable/button_selector_bleeding"
                     android:textSize="12sp"
                     android:text="Zapisz"/>
 
@@ -506,7 +513,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/btn_save_color"
+                    android:background="@drawable/button_selector_bleeding"
                     android:textSize="12sp"
                     android:text="Zapisz"/>
 
@@ -635,7 +642,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/btn_save_color"
+                    android:background="@drawable/button_selector_bleeding"
                     android:textSize="12sp"
                     android:text="Zapisz"/>
             </LinearLayout>

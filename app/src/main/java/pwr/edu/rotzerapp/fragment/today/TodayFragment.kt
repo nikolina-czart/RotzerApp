@@ -1,34 +1,27 @@
 package pwr.edu.rotzerapp.fragment.today
 
 import android.content.Context
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import android.widget.Toast
-import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.rezwan.rcalenderlib.callbacks.YearRangeListener
-import com.rezwan.rcalenderlib.ext.error
-import com.rezwan.rcalenderlib.ext.verbose
 import com.rezwan.rcalenderlib.models.RCalendar
 import kotlinx.android.synthetic.main.fragment_today.*
 import pwr.edu.rotzerapp.MainActivity
 import pwr.edu.rotzerapp.R
-import pwr.edu.rotzerapp.database.dto.*
+import pwr.edu.rotzerapp.database.dto.BleedingDto
+import pwr.edu.rotzerapp.database.dto.CervixDto
+import pwr.edu.rotzerapp.database.dto.MucusDto
+import pwr.edu.rotzerapp.database.dto.TemperatureDto
 import pwr.edu.rotzerapp.database.repository.FirebaseRepository
 import pwr.edu.rotzerapp.databinding.FragmentTodayBinding
 import pwr.edu.rotzerapp.enums.*
-import java.time.LocalDate
-import java.time.Year
-import java.time.temporal.WeekFields
-import java.util.*
 
 
 class TodayFragment: Fragment(), YearRangeListener {
@@ -82,7 +75,6 @@ class TodayFragment: Fragment(), YearRangeListener {
             val mucusType = MucusDto(
                 spinnerTypeMucus.selectedItem.toString()
             )
-
             repository.saveDayMucus(selectDate, mucusType)
         }
 
@@ -90,7 +82,6 @@ class TodayFragment: Fragment(), YearRangeListener {
             val bleedingDto = BleedingDto(
                 bleeding
             )
-
             repository.saveDayBleeding(selectDate, bleedingDto)
         }
 
@@ -105,26 +96,52 @@ class TodayFragment: Fragment(), YearRangeListener {
 
         btnNoBleeding.setOnClickListener{
             bleeding = Bleeding.NO_BLEEDING.increasedBleeding
+            btnNoBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.border)
+            btnLittleBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnMediumBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnVeryHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
         }
 
         btnLittleBleeding.setOnClickListener{
             bleeding = Bleeding.LITTLE_BLEEDING.increasedBleeding
+            btnNoBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnLittleBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.border)
+            btnMediumBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnVeryHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
         }
 
         btnMediumBleeding.setOnClickListener{
             bleeding = Bleeding.MEDIUM_BLEEDING.increasedBleeding
+            btnNoBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnLittleBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnMediumBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.border)
+            btnHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnVeryHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
         }
 
         btnHeavyBleeding.setOnClickListener{
             bleeding = Bleeding.HEAVY_BLEEDING.increasedBleeding
+            btnNoBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnLittleBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnMediumBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.border)
+            btnVeryHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
         }
 
         btnVeryHeavyBleeding.setOnClickListener{
             bleeding = Bleeding.VERY_HEAVY_BLEEDING.increasedBleeding
+            btnNoBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnLittleBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnMediumBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
+            btnVeryHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.border)
         }
 
         yearRangeWeekCalendarView.setYearRangeListener(this)
     }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -150,7 +167,19 @@ class TodayFragment: Fragment(), YearRangeListener {
         yearRangeWeekCalendarView?.post {
             tvChooseDayCalendar.text = "${rCalendar.date.dayOfMonth} ${rCalendar.date.monthOfYear().asText} ${rCalendar.date.year}r"
             selectDate = "${rCalendar.date.dayOfMonth}-${rCalendar.date.monthOfYear}-${rCalendar.date.year}"
+
+            setDailyValue()
         }
+    }
+
+    private fun setDailyValue() {
+        etBodyTemperature.setText("")
+        etMeasurementTime.setText("")
+        bleeding = ""
+        spinnerCervixHeight.setSelection(0)
+        spinnerCervixDilation.setSelection(0)
+        spinnerCervixHardness.setSelection(0)
+        spinnerTypeMucus.setSelection(0)
     }
 
     private fun iniSpinner() {
