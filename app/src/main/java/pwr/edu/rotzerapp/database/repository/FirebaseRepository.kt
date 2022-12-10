@@ -1,6 +1,8 @@
 package pwr.edu.rotzerapp.database.repository
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -45,8 +47,8 @@ class FirebaseRepository {
                         "DocumentSnapshot successfully written!"
                     )
                 }
-                .addOnFailureListener {
-                        e -> Log.w(FIREBASE_DEBUG, "Error writing document", e)
+                .addOnFailureListener { e ->
+                    Log.w(FIREBASE_DEBUG, "Error writing document", e)
                 }
         }
     }
@@ -64,8 +66,8 @@ class FirebaseRepository {
                         "DocumentSnapshot successfully written!"
                     )
                 }
-                .addOnFailureListener {
-                        e -> Log.w(FIREBASE_DEBUG, "Error writing document", e)
+                .addOnFailureListener { e ->
+                    Log.w(FIREBASE_DEBUG, "Error writing document", e)
                 }
         }
     }
@@ -83,8 +85,8 @@ class FirebaseRepository {
                         "DocumentSnapshot successfully written!"
                     )
                 }
-                .addOnFailureListener {
-                        e -> Log.w(FIREBASE_DEBUG, "Error writing document", e)
+                .addOnFailureListener { e ->
+                    Log.w(FIREBASE_DEBUG, "Error writing document", e)
                 }
         }
     }
@@ -102,9 +104,29 @@ class FirebaseRepository {
                         "DocumentSnapshot successfully written!"
                     )
                 }
-                .addOnFailureListener {
-                        e -> Log.w(FIREBASE_DEBUG, "Error writing document", e)
+                .addOnFailureListener { e ->
+                    Log.w(FIREBASE_DEBUG, "Error writing document", e)
                 }
         }
+    }
+
+    fun getSymptomsByDay(day: String): LiveData<Symptom> {
+        val symptoms = MutableLiveData<Symptom>()
+        val uid = auth.currentUser?.uid
+
+        db.collection("users")
+            .document(uid!!)
+            .collection("symptoms")
+            .document(day)
+            .get()
+            .addOnSuccessListener {
+                symptoms.postValue(it.toObject(Symptom::class.java))
+                Log.d(FIREBASE_DEBUG, it.data.toString())
+            }
+            .addOnFailureListener { e ->
+                Log.w(FIREBASE_DEBUG, "Error writing document", e)
+            }
+
+        return symptoms;
     }
 }
