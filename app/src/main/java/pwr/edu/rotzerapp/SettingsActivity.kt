@@ -10,7 +10,7 @@ import pwr.edu.rotzerapp.database.repository.FirebaseRepository
 class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState)
 //        setContentView(R.layout.settings_activity)
 //        if (savedInstanceState == null) {
 //            supportFragmentManager
