@@ -10,15 +10,15 @@ import pwr.edu.rotzerapp.database.repository.FirebaseRepository
 class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.settings_activity)
-        if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.settings, SettingsFragment())
-                .commit()
-        }
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.settings_activity)
+//        if (savedInstanceState == null) {
+//            supportFragmentManager
+//                .beginTransaction()
+//                .replace(R.id.settings, SettingsFragment())
+//                .commit()
+//        }
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {

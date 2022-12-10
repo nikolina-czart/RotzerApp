@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/panel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_main_color"
+    tools:context=".fragment.today.TodayFragment"
+    android:layout_marginBottom="50dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/background_card_color"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageButton
+                            android:id="@+id/btnPrev"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/small_button"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_arrow_left" />
+
+                        <ImageButton
+                            android:id="@+id/btnNext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/small_button"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_arrow_right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvChooseDayCalendar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorAccent"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <ImageButton
+                            android:id="@+id/btnToday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/small_button"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_today" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <com.rezwan.rcalenderlib.views.YearRangeCalendarView
+                    android:id="@+id/yearRangeWeekCalendarView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="2dp"
+                    android:layout_marginTop="10dp"
+                    app:active_date_background="@drawable/calendar_selector"
+                    app:calendar_mode="week"
+                    app:calendar_style="light"
+                    app:date_start_name="Monday"
+                    app:end_year="2023"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:month_name_maxlength="two"
+                    app:show_month="false"
+                    app:start_year="2022"
+                    app:sticky_date="true"
+                    app:viewbackground="@color/background_card_color" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/background_card_color"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/information"
+                    android:gravity="center"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:paddingBottom="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@color/background_card_color"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dni do okresu:"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                    <TextView
+                        android:id="@+id/tvDaysToPeriod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/duringAnalysis"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="5dp"
+                        tools:ignore="DuplicateIds" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@color/background_card_color"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chance_getting_pregnant"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                    <TextView
+                        android:id="@+id/tvChancePregnant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="W trakcie analizy"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="5dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/background_card_color"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/body_temperature"
+                    android:gravity="center"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:paddingBottom="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@color/background_card_color"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/temperature"
+                        android:gravity="left"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                    <EditText
+                        android:id="@+id/etBodyTemperature"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="--,-- *C"
+                        android:background="@drawable/edit_text"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="5dp"
+                        android:inputType="numberDecimal"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@color/background_card_color"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/measurement_time"
+                        android:gravity="left"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                    <EditText
+                        android:id="@+id/etMeasurementTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="HH:mm"
+                        android:background="@drawable/edit_text"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="5dp"
+                        android:inputType="time"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnTemperatureSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/button_selector_bleeding"
+                    android:textSize="12sp"
+                    android:text="@string/save"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/background_card_color"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description_mucus"
+                    android:gravity="center"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:paddingBottom="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@color/background_card_color"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/type_mucus"
+                        android:gravity="left"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerTypeMucus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/spinner" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnMucusSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/button_selector_bleeding"
+                    android:textSize="12sp"
+                    android:text="Zapisz"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/background_card_color"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bleeding"
+                    android:gravity="center"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:paddingBottom="5dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/background_card_color"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="10dp">
+
+                    <ImageButton
+                        android:id="@+id/btnNoBleeding"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/small_button"
+                        android:padding="10dp"
+                        android:src="@drawable/no_bleeding"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></ImageButton>
+
+                    <ImageButton
+                        android:id="@+id/btnLittleBleeding"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/small_button"
+                        android:padding="10dp"
+                        android:src="@drawable/little_bleeding"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btnMediumBleeding"
+                        app:layout_constraintStart_toEndOf="@+id/btnNoBleeding"
+                        app:layout_constraintTop_toTopOf="parent"></ImageButton>
+
+                    <ImageButton
+                        android:id="@+id/btnMediumBleeding"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/small_button"
+                        android:padding="10dp"
+                        android:src="@drawable/medium_bleeding"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/btnVeryHeavyBleeding"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></ImageButton>
+
+                    <ImageButton
+                        android:id="@+id/btnHeavyBleeding"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/small_button"
+                        android:padding="10dp"
+                        android:src="@drawable/heavy_bleeding"
+                        app:layout_constraintEnd_toStartOf="@+id/btnVeryHeavyBleeding"
+                        app:layout_constraintStart_toEndOf="@+id/btnMediumBleeding"
+                        app:layout_constraintTop_toTopOf="@+id/btnNoBleeding"></ImageButton>
+
+                    <ImageButton
+                        android:id="@+id/btnVeryHeavyBleeding"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/small_button"
+                        android:src="@drawable/very_heavy_bleeding"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></ImageButton>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Button
+                    android:id="@+id/btnBleedingSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/button_selector_bleeding"
+                    android:textSize="12sp"
+                    android:text="Zapisz"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/card"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/background_card_color"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cervix"
+                    android:gravity="center"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:paddingBottom="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@color/background_card_color"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cervical_height"
+                        android:gravity="left"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerCervixHeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/spinner" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@color/background_card_color"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cervix_dilation"
+                        android:gravity="left"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerCervixDilation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/spinner" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@color/background_card_color"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cervix_hardness"
+                        android:gravity="left"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerCervixHardness"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/spinner" />
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/btnCervixSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/button_selector_bleeding"
+                    android:textSize="12sp"
+                    android:text="Zapisz"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

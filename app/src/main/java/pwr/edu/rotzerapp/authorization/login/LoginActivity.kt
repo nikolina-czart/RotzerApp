@@ -21,9 +21,6 @@ import pwr.edu.rotzerapp.database.repository.FirebaseRepository
 class LoginActivity() : AppCompatActivity(), View.OnClickListener, Parcelable {
     private val fbAuth = FirebaseAuth.getInstance()
 
-    private val LOGIN_DEBUG = "LOGIN_ACTIVITY_DEBUG"
-    private val currentUser = FirebaseRepository.getCurrentUserID()
-
     private var registerTextView: TextView? = null
     private var signInButton: Button? = null
     private var loginEditText: TextInputEditText? = null
@@ -31,9 +28,8 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener, Parcelable {
     private var textInputLayoutEmail: TextInputLayout? = null
     private var textInputLayoutPassword: TextInputLayout? = null
 
-    constructor(parcel: Parcel) : this() {
-
-    }
+    constructor(
+        parcel: Parcel) : this()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,12 +71,12 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener, Parcelable {
             FirebaseRepository.auth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener { authRes ->
                     if (authRes.user != null) {
-//                        val intent: Intent =
-//                            Intent(applicationContext, MainActivity::class.java).apply {
-//                                flags =
-//                                    (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//                            }
-//                        startActivity(intent)
+                        val intent: Intent =
+                            Intent(applicationContext, MainActivity::class.java).apply {
+                                flags =
+                                    (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            }
+                        startActivity(intent)
                     }
                     changeErrorTextAttributes(textInputLayoutEmail, "", false)
                     changeErrorTextAttributes(textInputLayoutPassword, "", false)
@@ -99,7 +95,7 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener, Parcelable {
             changeErrorTextAttributes(textInputLayout, "Zły format e-mailu.", true)
             return false
         }
-        textInputLayout?.isErrorEnabled = false;
+        textInputLayout?.isErrorEnabled = false
         return true
     }
 
@@ -111,7 +107,7 @@ class LoginActivity() : AppCompatActivity(), View.OnClickListener, Parcelable {
             changeErrorTextAttributes(textInputLayout, "Hasło musi składać się z minimum 6 znaków.", true)
             return false
         }
-        textInputLayout?.isErrorEnabled = false;
+        textInputLayout?.isErrorEnabled = false
         return true
     }
 
