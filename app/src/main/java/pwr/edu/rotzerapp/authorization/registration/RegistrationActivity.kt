@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import pwr.edu.rotzerapp.MainActivity
 import pwr.edu.rotzerapp.R
 import pwr.edu.rotzerapp.authorization.login.LoginActivity
-import pwr.edu.rotzerapp.database.dto.MainUser
+import pwr.edu.rotzerapp.database.dto.MainUserDto
 
 class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
     private val registrationVm: RegistrationViewModel by viewModels<RegistrationViewModel>()
@@ -68,7 +68,7 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
             fbAuth.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener { authRes ->
                     if (authRes.user != null) {
-                        val user = MainUser(
+                        val user = MainUserDto(
                             authRes.user!!.uid,
                             name,
                             email,

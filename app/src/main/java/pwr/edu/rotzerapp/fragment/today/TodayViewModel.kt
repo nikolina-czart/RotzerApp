@@ -6,4 +6,5 @@ import pwr.edu.rotzerapp.database.repository.FirebaseRepository
 class TodayViewModel: ViewModel() {
     private val repository = FirebaseRepository()
 
+
 }

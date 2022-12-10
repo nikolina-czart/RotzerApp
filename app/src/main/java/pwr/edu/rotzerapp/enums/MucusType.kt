@@ -6,7 +6,7 @@ enum class MucusType(val describe: String, val short:String, val type:Int) {
     DRY("suchość","su",0),
     CONSTANS ("stała wydzielina","c",0),
     OBSERVATION ("wnikliwa obserwacja","w",1),
-    MOISTURE ("wilgotność na zewnętrznych narządach płciowych","wl",1),
+    MOISTURE ("wilgotność na zewnątrz","wl",1),
     MUCUS ("śluz","S",1),
 
     WHITE ("biały,","b",1),

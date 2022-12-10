@@ -48,6 +48,14 @@
         <item name="android:focusableInTouchMode">true</item>
     </style>
 
+    <style name="style_Spinner">
+        <item name="android:background">@drawable/edit_text</item>
+        <item name="android:dropDownSelector">@android:color/transparent</item>
+        <item name="android:popupBackground">#a6417e</item>
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
+
     <style name="headerText" parent="parent">
         <item name="android:textSize">@dimen/headerTextSize</item>
         <item name="android:textAlignment">center</item>

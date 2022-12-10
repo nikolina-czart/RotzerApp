@@ -18,6 +18,10 @@ dependencyResolutionManagement {
         // e.g this is how you would add jitpack
         maven { url "https://jitpack.io" }
 
+        flatDir {
+            dirs 'libs'
+        }
+
     }
 }
 rootProject.name = "RotzerApp"
