@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/settings"
-        android:icon="@drawable/more_info"
+        android:icon="@drawable/ic_logout"
         android:title="Settings"
         app:showAsAction="always"/>
 </menu>
