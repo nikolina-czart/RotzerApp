@@ -91,4 +91,9 @@ dependencies {
     //calendar weekly
     implementation 'joda-time:joda-time:2.10.1'
     implementation files('libs/rcalenderlib_v2.6.0.aar')
+
+
+
+    ///chart
+    implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
 }
