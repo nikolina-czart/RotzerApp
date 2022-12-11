@@ -203,7 +203,7 @@ class TodayFragment: Fragment(), YearRangeListener {
                 if (document != null) {
                     Log.d(TODAY_DEBUG, "DocumentSnapshot data: ${document.data}")
                     val symptom = document.toObject(Symptom::class.java)
-                    etBodyTemperature.setText(symptom?.temperature ?: "")
+                    etBodyTemperature?.setText(symptom?.temperature ?: "")
                     when(symptom?.increasedBleeding){
                         "0" -> {
                             btnNoBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.border)
