@@ -168,11 +168,12 @@
             android:textSize="16sp"
             android:paddingBottom="5dp"/>
 
-        <ImageView
-            android:id="@+id/chart"
+        <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+            android:id="@+id/aa_chart_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:src="drawable/chartexample" />
+            android:layout_height="match_parent">
+
+        </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>
 
     </LinearLayout>
     </LinearLayout>
