@@ -9,12 +9,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
+import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_chart.*
 import pwr.edu.rotzerapp.MainActivity
 import pwr.edu.rotzerapp.R
 import pwr.edu.rotzerapp.database.repository.FirebaseRepository
 import pwr.edu.rotzerapp.databinding.FragmentChartBinding
+
 import pwr.edu.rotzerapp.fragment.report.ReportFragment
 
 class ChartFragment: Fragment() {

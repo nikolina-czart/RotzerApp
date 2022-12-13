@@ -7,7 +7,7 @@
     tools:context=".fragment.chart.ChartFragment">
 
     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-        android:id="@+id/aa_chart_view"
+        android:id="@+id/chart_view_rotzer_method"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
