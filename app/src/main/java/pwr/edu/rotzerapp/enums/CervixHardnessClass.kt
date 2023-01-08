@@ -5,4 +5,10 @@ enum class CervixHardnessType(val describe: String, val type:String) {
     MEDIUM("średnio","t/m"),
     SOFT("miękka","m");
 
+
+    companion object {
+        fun findByDescription(describe: String): CervixHardnessType {
+            return CervixHardnessType.values().first { it.describe === describe }
+        }
+    }
 }

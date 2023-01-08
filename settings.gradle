@@ -1,4 +1,5 @@
 pluginManagement {
+
     repositories {
         gradlePluginPortal()
         google()
@@ -13,7 +14,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
+        jcenter() // Warning: this repository is going to shut down soo
 
         // e.g this is how you would add jitpack
         maven { url "https://jitpack.io" }

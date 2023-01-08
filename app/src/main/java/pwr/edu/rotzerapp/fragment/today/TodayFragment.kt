@@ -20,9 +20,11 @@ import org.joda.time.LocalDate
 import pwr.edu.rotzerapp.MainActivity
 import pwr.edu.rotzerapp.R
 import pwr.edu.rotzerapp.database.dto.*
+import pwr.edu.rotzerapp.database.repository.CycleComputerRepository
 import pwr.edu.rotzerapp.database.repository.FirebaseRepository
 import pwr.edu.rotzerapp.databinding.FragmentTodayBinding
 import pwr.edu.rotzerapp.enums.*
+import java.time.format.DateTimeFormatter
 
 class TodayFragment: Fragment(), YearRangeListener {
     private val repository = FirebaseRepository()
@@ -33,6 +35,9 @@ class TodayFragment: Fragment(), YearRangeListener {
     private var selectDate: String = ""
     private var bleeding: String = ""
     private val db = Firebase.firestore
+    var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+
+    private val cycleComputerRepository = CycleComputerRepository()
 
     companion object{
         private const val TODAY_DEBUG = "TODAY_FRAGMENT_DEBUG"
@@ -52,6 +57,8 @@ class TodayFragment: Fragment(), YearRangeListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         iniSpinner()
+
+        cycleComputerRepository.getComputedCycles(getCurrentUserID()!!)
 
         btnPrev.setOnClickListener {
             yearRangeWeekCalendarView.navigateToPrevious()
@@ -77,14 +84,14 @@ class TodayFragment: Fragment(), YearRangeListener {
 
         btnMucusSave.setOnClickListener{
             val mucusType = MucusDto(
-                spinnerTypeMucus.selectedItem.toString()
+                MucusType.findByDescription(spinnerTypeMucus.selectedItem.toString())
             )
             repository.saveDayMucus(selectDate, mucusType)
         }
 
         btnBleedingSave.setOnClickListener{
             if(bleeding.isNotEmpty() && bleeding.isNotBlank()){
-                val bleedingDto = BleedingDto(bleeding)
+                val bleedingDto = BleedingDto(Bleeding.findByDescription(bleeding))
                 repository.saveDayBleeding(selectDate, bleedingDto)
             }else {
                 Toast.makeText(ACTIVITY, "Wybierz rodzaj krwawienia", Toast.LENGTH_LONG).show()
@@ -93,9 +100,9 @@ class TodayFragment: Fragment(), YearRangeListener {
 
         btnCervixSave.setOnClickListener{
             val cervixDto = CervixDto(
-                spinnerCervixHeight.selectedItem.toString(),
-                spinnerCervixDilation.selectedItem.toString(),
-                spinnerCervixHardness.selectedItem.toString()
+                CervixHeightType.findByDescription(spinnerCervixHeight.selectedItem.toString()),
+                CervixOpenType.findByDescription(spinnerCervixDilation.selectedItem.toString()),
+                CervixHardnessType.findByDescription(spinnerCervixHardness.selectedItem.toString())
             )
             repository.saveDayCervix(selectDate, cervixDto)
         }
@@ -159,7 +166,7 @@ class TodayFragment: Fragment(), YearRangeListener {
     }
 
     override fun OnDateClicked(rCalendar: RCalendar, position: Int) {
-        selectDate = "${rCalendar.date.dayOfMonth}-${rCalendar.date.monthOfYear}-${rCalendar.date.year}"
+        selectDate = rCalendar.date.toString("dd-MM-yyyy")
     }
 
     override fun OnSelectedDateFound(
@@ -171,7 +178,7 @@ class TodayFragment: Fragment(), YearRangeListener {
     ) {
         yearRangeWeekCalendarView?.post {
             tvChooseDayCalendar.text = "${rCalendar.date.dayOfMonth} ${rCalendar.date.monthOfYear().asText} ${rCalendar.date.year}r"
-            selectDate = "${rCalendar.date.dayOfMonth}-${rCalendar.date.monthOfYear}-${rCalendar.date.year}"
+            selectDate = rCalendar.date.toString("dd-MM-YYYY")
 
             completeExistData()
 
@@ -205,45 +212,45 @@ class TodayFragment: Fragment(), YearRangeListener {
                     val symptom = document.toObject(Symptom::class.java)
                     etBodyTemperature?.setText(symptom?.temperature ?: "")
                     when(symptom?.increasedBleeding){
-                        "0" -> {
+                        Bleeding.NO_BLEEDING -> {
                             btnNoBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.border)
                             btnLittleBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnMediumBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnVeryHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
-                            bleeding = symptom?.increasedBleeding
+                            bleeding = symptom?.increasedBleeding.describe
                         }
-                        "25" -> {
+                        Bleeding.LITTLE_BLEEDING -> {
                             btnNoBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnLittleBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.border)
                             btnMediumBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnVeryHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
-                            bleeding = symptom?.increasedBleeding
+                            bleeding = symptom?.increasedBleeding.describe
                         }
-                        "50" -> {
+                        Bleeding.MEDIUM_BLEEDING -> {
                             btnNoBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnLittleBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnMediumBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.border)
                             btnHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnVeryHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
-                            bleeding = symptom?.increasedBleeding
+                            bleeding = symptom?.increasedBleeding.describe
                         }
-                        "75" -> {
+                        Bleeding.HEAVY_BLEEDING -> {
                             btnNoBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnLittleBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnMediumBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.border)
                             btnVeryHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
-                            bleeding = symptom?.increasedBleeding
+                            bleeding = symptom?.increasedBleeding.describe
                         }
-                        "100" -> {
+                        Bleeding.VERY_HEAVY_BLEEDING -> {
                             btnNoBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnLittleBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnMediumBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                             btnVeryHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.border)
-                            bleeding = symptom?.increasedBleeding
+                            bleeding = symptom?.increasedBleeding.describe
                         }
                         else -> {
                             bleeding = ""
@@ -254,10 +261,10 @@ class TodayFragment: Fragment(), YearRangeListener {
                             btnVeryHeavyBleeding.background = ContextCompat.getDrawable(ACTIVITY, R.drawable.small_button)
                         }
                     }
-                    spinnerCervixHeight.setSelection(getIndex(spinnerCervixHeight, symptom?.height))
-                    spinnerCervixDilation.setSelection(getIndex(spinnerCervixDilation, symptom?.dilation))
-                    spinnerCervixHardness.setSelection(getIndex(spinnerCervixHardness, symptom?.hardness))
-                    spinnerTypeMucus.setSelection(getIndex(spinnerTypeMucus, symptom?.vaginalMucus))
+                    spinnerCervixHeight.setSelection(getIndex(spinnerCervixHeight, symptom?.height?.describe))
+                    spinnerCervixDilation.setSelection(getIndex(spinnerCervixDilation, symptom?.dilation?.describe))
+                    spinnerCervixHardness.setSelection(getIndex(spinnerCervixHardness, symptom?.hardness?.describe))
+                    spinnerTypeMucus.setSelection(getIndex(spinnerTypeMucus, symptom?.vaginalMucus?.describe))
                 } else {
                     Log.d(TODAY_DEBUG, "No such document")
                 }

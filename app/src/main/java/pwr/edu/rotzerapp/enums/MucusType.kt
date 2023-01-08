@@ -21,5 +21,11 @@ enum class MucusType(val describe: String, val short:String, val type:Int) {
     LIQUID ("płynny", "pł",2),
     WET ("mokro-ślisko", "mś",2);
 
+    companion object {
+        fun findByDescription(describe: String): MucusType {
+            return values().first { it.describe === describe }
+        }
+    }
+
 
 }

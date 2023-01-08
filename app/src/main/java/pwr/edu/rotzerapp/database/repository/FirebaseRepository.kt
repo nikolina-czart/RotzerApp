@@ -3,17 +3,19 @@ package pwr.edu.rotzerapp.database.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.SetOptions
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import pwr.edu.rotzerapp.database.dto.*
+import java.time.LocalDate
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
 class FirebaseRepository: Repository() {
     private val USERS = "users"
     private val SYMPTOMS = "symptoms"
+    var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
 
     companion object FirebaseManagerAuth {
         val auth = FirebaseAuth.getInstance()
@@ -35,6 +37,11 @@ class FirebaseRepository: Repository() {
     }
 
     fun saveDayTemperature(day: String, temperatureDto: TemperatureDto) {
+        val zdt: ZonedDateTime = ZonedDateTime.of(LocalDate.parse(day, formatter).atStartOfDay(), ZoneId.systemDefault())
+        temperatureDto.date = Timestamp(zdt.toInstant().toEpochMilli() / 1000, 0)
+
+//            .from()
+
         getCurrentUserID()?.let {
             db.collection(USERS)
                 .document(it)
@@ -55,6 +62,9 @@ class FirebaseRepository: Repository() {
 
 
     fun saveDayMucus(day: String, mucusDto: MucusDto) {
+        val zdt: ZonedDateTime = ZonedDateTime.of(LocalDate.parse(day, formatter).atStartOfDay(), ZoneId.systemDefault())
+        mucusDto.date = Timestamp(zdt.toInstant().toEpochMilli() / 1000, 0)
+
         getCurrentUserID()?.let {
             db.collection(USERS)
                 .document(it)
@@ -74,6 +84,9 @@ class FirebaseRepository: Repository() {
     }
 
     fun saveDayCervix(day: String, cervixDto: CervixDto) {
+        val zdt: ZonedDateTime = ZonedDateTime.of(LocalDate.parse(day, formatter).atStartOfDay(), ZoneId.systemDefault())
+        cervixDto.date = Timestamp(zdt.toInstant().toEpochMilli() / 1000, 0)
+
         getCurrentUserID()?.let {
             db.collection(USERS)
                 .document(it)
@@ -93,6 +106,9 @@ class FirebaseRepository: Repository() {
     }
 
     fun saveDayBleeding(day: String, bleedingDto: BleedingDto) {
+        val zdt: ZonedDateTime = ZonedDateTime.of(LocalDate.parse(day, formatter).atStartOfDay(), ZoneId.systemDefault())
+        bleedingDto.date = Timestamp(zdt.toInstant().toEpochMilli() / 1000, 0)
+
         getCurrentUserID()?.let {
             db.collection(USERS)
                 .document(it)

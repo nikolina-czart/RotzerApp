@@ -99,5 +99,5 @@ dependencies {
 
 
     ///chart
-    implementation 'com.github.AAChartModel:AAChartCore-Kotlin:-SNAPSHOT'
+    implementation 'com.github.AAChartModel:AAChartCore-Kotlin:7.2.0'
 }

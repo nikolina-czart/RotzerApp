@@ -1,7 +1,7 @@
 package pwr.edu.rotzerapp.database.dto
 
 data class MainUserDto(
-    val uid: String? = "",
+    val uid: String = "",
     val name: String? = "",
     val surname: String? = "",
     val email: String? = "",

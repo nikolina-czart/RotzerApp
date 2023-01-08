@@ -16,4 +16,11 @@ enum class Bleeding(val describe: String, val increasedBleeding: String, var bac
         HEAVY_BLEEDING.background = R.drawable.small_button
         VERY_HEAVY_BLEEDING.background = R.drawable.small_button
     }
+
+
+    companion object {
+        fun findByDescription(describe: String): Bleeding {
+            return Bleeding.values().first { it.describe === describe }
+        }
+    }
 }
