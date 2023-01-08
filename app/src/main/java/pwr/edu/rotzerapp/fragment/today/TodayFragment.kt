@@ -58,8 +58,6 @@ class TodayFragment: Fragment(), YearRangeListener {
         super.onViewCreated(view, savedInstanceState)
         iniSpinner()
 
-        cycleComputerRepository.getComputedCycles(getCurrentUserID()!!)
-
         btnPrev.setOnClickListener {
             yearRangeWeekCalendarView.navigateToPrevious()
         }

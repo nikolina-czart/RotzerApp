@@ -6,6 +6,10 @@ import pwr.edu.rotzerapp.CycleInfoParameters
 import pwr.edu.rotzerapp.database.dto.Symptom
 import pwr.edu.rotzerapp.enums.Bleeding
 import java.time.ZoneId
+import kotlin.math.abs
+
+
+//Klasa do analizy skończonych cykli
 
 class CycleComputerRepository: Repository() {
     private val COLLECTION = "users"
@@ -50,14 +54,59 @@ class CycleComputerRepository: Repository() {
         return list;
     }
 
-    fun getComputedCycles(currentUserID: String) {
+    fun listTemperatures(currentUserID: String): List<CycleInfoParameters> {
         val list = this.getCyclesList(currentUserID)
         list.forEach{
-            val f = it.symptoms.stream().filter { f -> f.vaginalMucus !== null }.sorted{ o1, o2 -> o2.vaginalMucus!!.type - o1.vaginalMucus!!.type}.findFirst()
-            val k = "asd"
-        }
+            val maxValue = it.symptoms.reversed().maxOf { d -> d.vaginalMucus?.type ?:0 }
+            val symptom = it.symptoms.reversed().first { d-> d.vaginalMucus?.type ?:0 == maxValue }
 
+            it.ovulation = symptom.date
+            var ovulationIndex = it.symptoms.indexOf(symptom)
+            var firstHigh: Int? = null
+
+            var firstIndex = ovulationIndex - 6
+            var max = 0.0
+
+            if(firstIndex < 0) {
+                firstIndex = 0
+            }
+
+            while (true) {
+                val tmpTemperature = it.symptoms.subList(firstIndex, ovulationIndex);
+                max = tmpTemperature.maxOf { s -> s.temperature?.toDouble()?:0.0 }
+
+                if(it.symptoms.size <= ovulationIndex + 1) {
+                    break
+                }
+
+                if((it.symptoms[ovulationIndex + 1].temperature?.toDouble() ?: 0.0) > max) {
+                    firstHigh = ovulationIndex + 1
+                    it.sixTemperatures = tmpTemperature.map { k->k.date }.toList()
+                    break
+                }
+
+                firstIndex++
+                ovulationIndex++
+            }
+
+            if(firstIndex + 2 < it.symptoms.size) {
+                var math = abs(it.symptoms[firstIndex + 2].temperature?.toDouble() ?: (0.0 - max))
+                if(math >= 0.2) {
+                    it.higherTemperature = it.symptoms.subList(ovulationIndex, ovulationIndex + 3).map { d->d.date }
+                } else {
+                    it.higherTemperature = it.symptoms.subList(ovulationIndex, ovulationIndex + 4).map { d->d.date }
+                }
+
+                it.youCanSexToday = it.higherTemperature.last()
+            }
+
+        }
+        return list //lista cykli z obliczonymi wszystkimi parametrami, jeśli jest taka możliwość
     }
+
+
+
+
 
 
 }
